@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}
+学科增加
+{% endblock%}
+
+{% block style %}
+        <style>
+            .container{
+                position: relative;
+            }
+            #loginName{
+                position: absolute;
+                right:0;
+            }
+            h2{
+                margin:0;
+                padding:12px 0;
+                background-color: lightgray;
+                font-size:20px;
+            }
+            .navbar{
+                margin-bottom:0;
+            }
+            form{
+                padding-left:200px;
+            }
+        </style>
+{% endblock%}
+
+{% block main %}
+<h2>
+    <div class="container">
+        <div>添加学科</div>
+    </div>
+</h2>
+<br>
+<form action="{% url 'subject:add' %}" method="POST" class="form-horizontal" role="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">名称</label>
+                <div class="col-sm-3">
+                  <input  name="name" type="text" class="form-control" id="name" placeholder="请输入名称">
+                </div>
+              </div>
+                <br>
+              <div class="form-group">
+                <label for="lastname" class="col-sm-2 control-label">学费</label>
+                <div class="col-sm-2">
+                  <input  name="amount" type="number" class="form-control" id="amount" placeholder="请输入学费">
+                </div>
+              </div>
+                <br>
+
+     <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">学时</label>
+                <div class="col-sm-2">
+                  <input name="days" type="text" class="form-control" id="days" placeholder="请输入学时">
+                </div>
+              </div>
+                <br>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">排序</label>
+                <div class="col-sm-2">
+                  <input  name="number" type="text" class="form-control" id="number" placeholder="请输入序号">
+                </div>
+              </div>
+                <br>
+
+
+                <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">承诺</label>
+                <div class="col-sm-6">
+                  <input name="assurance" type="text" class="form-control" id="assurance" placeholder="请输入名字">
+                </div>
+              </div>
+                <br>
+
+                <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">备注</label>
+                <div class="col-sm-6">
+                    <textarea name="remark" id="remark" cols="70"  rows="10" placeholder="请输入备注内容"></textarea>
+                </div>
+              </div>
+                <br>
+
+
+               <div class="form-group">
+                       <h3>{{msg}}</h3>
+               </div>
+                <br>
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                  <button type="submit" class="btn btn-success btn-block">注册</button>
+                </div>
+              </div>
+            </form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    阶段详情页
+{% endblock %}
+{% block style %}
+<style>
+    #title{
+        position: relative;
+        top:-20px;
+    }
+</style>
+{% endblock %}
+{% block main %}
+    <nav class="navbar navbar-default" role="navigation" id="title">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">{{subject.name}}学科阶段详情</div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h4>阶段标题</h4>
+        <h5>{{stage.title}}</h5>
+        <br>
+        <h4>学时</h4>
+        <h5>{{stage.days}}</h5>
+        <br>
+        <h4>项目</h4>
+        <h5>{{stage.project}}</h5>
+        <br>
+        <h4>教学方法</h4>
+        <h5>{{stage.teaching}}</h5>
+        <br>
+        <h4>学习方法</h4>
+        <h5>{{stage.learning}}</h5>
+        <br>
+        <h4>学生分享</h4>
+        <h5>{{stage.sharing}}</h5>
+        <br>
+        <h4>备注</h4>
+        <h5>{{stage.remark}}</h5>
+        <br>
+
+    </div>
+
+
+{% endblock %}

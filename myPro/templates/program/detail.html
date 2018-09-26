@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    阶段二级大纲详情页
+{% endblock %}
+{% block style %}
+<style>
+    #title{
+        position: relative;
+        top:-20px;
+    }
+</style>
+{% endblock %}
+{% block main %}
+    <nav class="navbar navbar-default" role="navigation" id="title">
+        <div class="container-fluid container">
+            <div class="navbar-header">
+                <div><h3>{{subject.name}}{{ stage.title }}二级大纲详情</h3></div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h4>天序</h4>
+        <h5>{{program.number}}</h5>
+        <br>
+        <h4>标志性内容</h4>
+        <h5>{{program.sign}}</h5>
+        <br>
+        <h4>内容摘要</h4>
+        <h5>{{program.digest}}天</h5>
+        <br>
+        <h4>准备工作</h4>
+        <h5>{{program.prepare}}</h5>
+        <br>
+        <h4>注意事项</h4>
+        <h5>{{program.attention}}</h5>
+        <br>
+        <h4>备注</h4>
+        <h5>{{program.remark}}</h5>
+        <br>
+
+    </div>
+
+
+{% endblock %}

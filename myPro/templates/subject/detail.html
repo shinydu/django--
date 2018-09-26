@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    详情页
+{% endblock %}
+{% block style %}
+<style>
+    #title{
+        position: relative;
+        top:-20px;
+    }
+</style>
+{% endblock %}
+{% block main %}
+    <nav class="navbar navbar-default" role="navigation" id="title">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">学科详情</div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h4>学科名称</h4>
+        <h5>{{subject.name}}</h5>
+        <br>
+        <h4>学费</h4>
+        <h5>{{subject.amount}}</h5>
+        <br>
+        <h4>学时</h4>
+        <h5>{{subject.days}}</h5>
+        <br>
+        <h4>承诺</h4>
+        <h5>{{subject.assurance}}</h5>
+        <br>
+        <h4>备注</h4>
+        <h5>{{subject.remark}}</h5>
+    </div>
+
+
+{% endblock %}

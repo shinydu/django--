@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{%block title%}
+教学阶段管理系统
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+        <h2 class="text-center">{{uname.name}}阶段详情</h2>
+        {% for stage in stage_list %}
+            <div class="text-center panel-title">
+                <a href="/outline/list/?subject_id={{stage.subject_id}}&stage_id={{ stage.id }}">{{stage.title}} {{stage.days}}天</a>
+                <a href="/stage/detail/?stage_id={{stage.id}}&subject_id={{stage.subject_id}}"><span class="glyphicon glyphicon-list"></span></a>
+                <a href="/stage/edit/?stage_id={{ stage.id }}"><span class="glyphicon glyphicon-edit"></span></a>
+                <a href="/stage/delete/?stage_id={{stage.id}}"><span class="glyphicon glyphicon-remove-circle"></span></a>
+            </div>
+        {% endfor %}
+
+
+        <div class="text-center panel-title">
+            <a href="/stage/add/">
+            <span class="glyphicon glyphicon-plus-sign"> </span>
+        </a>
+        </div>
+    </div>
+{% endblock %}

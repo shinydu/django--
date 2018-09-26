@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}
+阶段添加
+{% endblock%}
+
+{% block style %}
+        <style>
+            .container{
+                position: relative;
+            }
+            #loginName{
+                position: absolute;
+                right:0;
+            }
+            h2{
+                margin:0;
+                padding:12px 0;
+                background-color: lightgray;
+                font-size:20px;
+            }
+            .navbar{
+                margin-bottom:0;
+            }
+            form{
+                padding-left:200px;
+            }
+        </style>
+{% endblock%}
+
+{% block main %}
+<h2>
+    <div class="container">
+        <div>添加阶段</div>
+    </div>
+</h2>
+<br>
+<form action="{% url 'add' %}" method="POST" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">学科名称</label>
+                <div class="col-sm-3">
+                    <select name="subject_id" class="form-control">
+                        {% for subject in subjects %}
+                        <option value="{{subject.id}}">{{subject.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+                <br>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">阶段标题</label>
+                <div class="col-sm-2">
+                  <input  name="title" type="text" class="form-control" id="amount" placeholder="请输入阶段标题">
+                </div>
+              </div>
+                <br>
+
+     <div class="form-group">
+                <label class="col-sm-2 control-label">学时</label>
+                <div class="col-sm-2">
+                  <input name="days" type="number" class="form-control" id="days" placeholder="请输入学时">
+                </div>
+              </div>
+                <br>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">项目</label>
+                <div class="col-sm-2">
+                  <input  name="project" type="text" class="form-control" id="number" placeholder="请输入项目名称">
+                </div>
+              </div>
+                <br>
+
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label">教学方法</label>
+                <div class="col-sm-6">
+                  <input name="teaching" type="text" class="form-control" placeholder="请输入教学方法">
+                </div>
+              </div>
+                <br>
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label">学习方法</label>
+                <div class="col-sm-6">
+                  <input name="learning" type="text" class="form-control" id="assurance" placeholder="请输入学习方法">
+                </div>
+              </div>
+                <br>
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label">学生分享</label>
+                <div class="col-sm-6">
+                    <textarea name="sharing" id="sharing" cols="70"  rows="10" placeholder="请输入学生分享内容"></textarea>
+                </div>
+              </div>
+                <br>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">备注</label>
+                <div class="col-sm-6">
+                    <textarea name="remark" id="remark" cols="70"  rows="10" placeholder="请输入备注"></textarea>
+                </div>
+              </div>
+                <br>
+
+
+               <div class="form-group">
+                       <h3>{{msg}}</h3>
+               </div>
+                <br>
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                  <button type="submit" class="btn btn-success btn-block">添加</button>
+                </div>
+              </div>
+            </form>
+{% endblock %}

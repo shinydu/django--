@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+    阶段编辑
+{% endblock %}
+
+{% block style %}
+    <style>
+        .container{
+            position: relative;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <h2>
+        <div class="container">
+            编辑阶段
+        </div>
+    </h2>
+    <br>
+    <form class="form-horizontal"  action="{% url 'edit' %}" method="POST" role="form">
+{#        {% crsf_token %}#}
+        <input type="hidden" name="stage_id" value="{{ stage.id }}">
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">阶段标题</label>
+            <div class="col-sm-3">
+                <input type="text" name="title" class="form-control" value="{{stage.title}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="project" class="col-sm-2 control-label">学时</label>
+            <div class="col-sm-3">
+                <input name="days" type="text" class="form-control" value="{{stage.days}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="project" class="col-sm-2 control-label">项目</label>
+            <div class="col-sm-3">
+                <input name="project" type="text" class="form-control" value="{{stage.project}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="project" class="col-sm-2 control-label">备注</label>
+            <div class="col-sm-3">
+                <input name="remark" type="text" class="form-control" value="{{stage.remark}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                  <button type="submit" class="btn btn-success btn-block">修改</button>
+                </div>
+              </div>
+
+    </form>
+{% endblock %}

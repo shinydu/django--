@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}
+大纲添加
+{% endblock%}
+
+{% block style %}
+        <style>
+            .container{
+                position: relative;
+            }
+            #loginName{
+                position: absolute;
+                right:0;
+            }
+            h2{
+                margin:0;
+                padding:12px 0;
+                background-color: lightgray;
+                font-size:20px;
+            }
+            .navbar{
+                margin-bottom:0;
+            }
+            form{
+                padding-left:200px;
+            }
+        </style>
+{% endblock%}
+
+{% block main %}
+<h2>
+    <div class="container">
+        <div>添加{{ subject.name }}{{ stage.title }}一级大纲</div>
+    </div>
+</h2>
+<br>
+<form action="{% url 'outline:add' %}" method="POST" class="form-horizontal" role="form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">学科名称</label>
+                <div class="col-sm-3">
+{#                    {% for subjects in subject %}#}
+{#                        {{subject.name}}#}
+{#                        {% endfor %}#}
+                    <select name="subject_id" class="form-control">
+                        {% for subjects in subject %}
+                        <option value="{{subjects.id}}">{{subjects.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+                <br>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">阶段名称</label>
+                <div class="col-sm-3">
+{#                    {% for stages in stage %}#}
+{#                        {{stage.title}}#}
+{#                        {% endfor %}#}
+                    <select for="subject_id" name="stage_id" class="form-control">
+                        {% for stages in stage %}
+                        <option value="{{stages.id}}">{{stages.title}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+                <br>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">序号</label>
+                <div class="col-sm-2">
+                  <input  name="number" type="number" class="form-control" id="number" placeholder="请输入序号">
+                </div>
+              </div>
+                <br>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">大纲标题</label>
+                <div class="col-sm-2">
+                  <input  name="title" type="text" class="form-control" id="amount" placeholder="请输入大纲标题">
+                </div>
+              </div>
+                <br>
+
+     <div class="form-group">
+                <label class="col-sm-2 control-label">学时</label>
+                <div class="col-sm-2">
+                  <input name="days" type="number" class="form-control" id="days" placeholder="请输入学时">
+                </div>
+              </div>
+                <br>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">高级内容</label>
+                <div class="col-sm-2">
+                  <textarea name="advancing" id="remark" cols="70"  rows="10" placeholder="请输入高级内容"></textarea>
+                </div>
+              </div>
+                <br>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">备注</label>
+                <div class="col-sm-6">
+                    <textarea name="remark" id="remark" cols="70"  rows="10" placeholder="请输入备注"></textarea>
+                </div>
+              </div>
+                <br>
+
+
+               <div class="form-group">
+                       <h3>{{msg}}</h3>
+               </div>
+                <br>
+
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                  <button type="submit" class="btn btn-success btn-block">添加</button>
+                </div>
+              </div>
+            </form>
+{% endblock %}

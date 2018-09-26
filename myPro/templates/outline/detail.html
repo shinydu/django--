@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    阶段大纲详情页
+{% endblock %}
+{% block style %}
+<style>
+    #title{
+        position: relative;
+        top:-20px;
+    }
+</style>
+{% endblock %}
+{% block main %}
+    <nav class="navbar navbar-default" role="navigation" id="title">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="container"><h3>{{subject.name}}{{ stage.title }}一级大纲详情</h3></div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h4>序号</h4>
+        <h5>{{outline.number}}</h5>
+        <br>
+        <h4>标题</h4>
+        <h5>{{outline.title}}</h5>
+        <br>
+        <h4>学时</h4>
+        <h5>{{outline.days}}天</h5>
+        <br>
+        <h4>高级内容</h4>
+        <h5>{{outline.advancing}}</h5>
+        <br>
+        <h4>备注</h4>
+        <h5>{{outline.remark}}</h5>
+        <br>
+
+    </div>
+
+
+{% endblock %}

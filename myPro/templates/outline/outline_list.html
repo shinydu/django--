@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{%block title%}
+教学大纲管理系统
+{% endblock %}
+
+
+{% block main %}
+    <div class="container">
+            <h2 class="text-center">{{subjectName}}{{ stageName }}一级大纲</h2>
+        <br>
+        {% for outline in outline_list %}
+            <div class="text-center panel-title" style="font-size: 16px">
+                <a href="/program/list/?subject_id={{outline.subject_id}}&stage_id={{ outline.stage_id }}&outline_id={{ outline.id }}" style="color: #0f0f0f">{{outline.title}} </a>
+                <span style="color: grey">({{outline.days}}天)</span>
+                <a href="/outline/detail/?subject_id={{outline.subject_id}}&stage_id={{ outline.stage_id }}&outline_id={{ outline.id }}"><span class="glyphicon glyphicon-list"></span></a>
+                <a href="/outline/edit/?outline_id={{ outline.id }}"><span class="glyphicon glyphicon-edit"></span></a>
+                <a href="/outline/delete/?outline_id={{outline.id}}"><span class="glyphicon glyphicon-remove-circle"></span></a>
+            </div>
+            <div class="text-center" style="color: grey;font-size: 14px">
+                {{ outline.advancing }}
+            </div>
+            <br>
+            <div class="text-center">
+                <span class="glyphicon glyphicon-arrow-down "></span>
+            </div>
+            <br>
+        {% endfor %}
+
+
+        <div class="text-center panel-title">
+            <a href="/outline/add/">
+            <span class="glyphicon glyphicon-plus-sign"> </span>
+        </a>
+        </div>
+    </div>
+{% endblock %}

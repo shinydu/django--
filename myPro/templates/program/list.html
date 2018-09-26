@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+
+{%block title%}
+二级大纲管理系统
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+    </style>
+
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+            <h2 class="text-center">{{subjectName}}{{ stageName }}二级大纲</h2>
+        <br>
+            <h4 class="text-center" style="color: gray">{{ outlineName }}({{ outlineList.days }}天)</h4>
+        <br>
+        {% for program in program_list %}
+            <div class="panel panel-default">
+                <div class="panel-heading panel-title">
+                    <a href="/program/detail/?subject_id={{program.subject_id}}&stage_id={{ program.stage_id }}&outline_id={{ program.outline_id }}&program_id={{ program.id }}">第{{ program.number }}天  {{ program.sign }}</a>
+                    <div style="float: right" class="panel-title">
+                        <a href="/program/edit/?program_id={{ program.id }}"><span class="glyphicon glyphicon-edit" id="edit"></span></a>
+                        <a href="/program/delete/?program_id={{program.id}}"><span class="glyphicon glyphicon-remove-circle" id="delete"></span></a>
+
+                    </div>
+
+
+                </div>
+                <div class="panel-body">
+                    {{ program.digest }}
+                </div>
+                <div class="panel-heading">
+                    <h5 class="panel-title">
+                        {{ outlineName }}
+                    </h5>
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <div class="text-center panel-title">
+            <a href="/program/add/">
+            <span class="glyphicon glyphicon-plus-sign"> </span>
+        </a>
+        </div>
+    </div>
+{% endblock %}
